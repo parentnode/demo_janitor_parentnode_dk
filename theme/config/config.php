@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 /**
 * Site name
 */
-define("SITE_UID", "JDP");
+define("SITE_UID", "PADEMO");
 define("SITE_NAME", "parentNode Demo");
 define("SITE_URL", (isset($_SERVER["HTTPS"]) ? "https" : "http")."://".$_SERVER["SERVER_NAME"]);
 define("SITE_EMAIL", "martin@parentnode.dk");
