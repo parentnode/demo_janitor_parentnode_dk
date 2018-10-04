@@ -1,4 +1,4 @@
-document.write('<script type="text/javascript" src="/assets/parentnode-skin-default/src/js/lib/seg_desktop_include.js"></script>');
+document.write('<script type="text/javascript" src="/assets/parentnode-skin-default/src/js/seg_desktop.js"></script>');
 
 // document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');
 document.write('<script type="text/javascript" src="/assets/parentnode-skin-default/src/js/manipulator/src/u-googleanalytics.js"></script>');
