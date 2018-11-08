@@ -1,3 +1,6 @@
+/*
+asset-builder @ 2018-11-08 11:28:33
+*/
 
 /*seg_desktop_include.css*/
 
@@ -6,25 +9,25 @@
 /*s-fonts.css*/
 @font-face {
 	font-family: 'OpenSans';
-	src: url('/janitor/admin/css/fonts/opensans-regular-webfont.woff') format('woff'),
-		 url('/janitor/admin/css/fonts/opensans-regular-webfont.ttf') format('truetype'),
-		 url('/janitor/admin/css/fonts/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+	src: url('fonts/opensans-regular-webfont.woff') format('woff'),
+		 url('fonts/opensans-regular-webfont.ttf') format('truetype'),
+		 url('fonts/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'OpenSans';
-	src: url('/janitor/admin/css/fonts/opensans-bold-webfont.woff') format('woff'),
-		 url('/janitor/admin/css/fonts/opensans-bold-webfont.ttf') format('truetype'),
-		 url('/janitor/admin/css/fonts/opensans-bold-webfont.svg#open_sansbold') format('svg');
+	src: url('fonts/opensans-bold-webfont.woff') format('woff'),
+		 url('fonts/opensans-bold-webfont.ttf') format('truetype'),
+		 url('fonts/opensans-bold-webfont.svg#open_sansbold') format('svg');
 	font-weight: bold;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'OpenSans';
-	src: url('/janitor/admin/css/fonts/opensans-italic-webfont.woff') format('woff'),
-		 url('/janitor/admin/css/fonts/opensans-italic-webfont.ttf') format('truetype'),
-		 url('/janitor/admin/css/fonts/opensans-italic-webfont.svg#open_sansitalic') format('svg');
+	src: url('fonts/opensans-italic-webfont.woff') format('woff'),
+		 url('fonts/opensans-italic-webfont.ttf') format('truetype'),
+		 url('fonts/opensans-italic-webfont.svg#open_sansitalic') format('svg');
 	font-weight: normal;
 	font-style: italic;
 }
@@ -102,7 +105,8 @@ dt {color: #7d848c; display: inline-block; vertical-align: top; font-size: 12px;
 #content .scene h1 + h2 + ul.actions {padding: 0 30px; height: 49px; margin: -49px 0 0;}
 #content .scene h1 + ul.actions li,
 #content .scene h1 + h2 + ul.actions li {padding-bottom: 0;}
-#content .scene > ul.actions li.delete {float: right; padding: 0 0 10px 10px;}
+#content .scene > ul.actions li.delete,
+#content .scene > ul.actions li.unpaid,
 #content .scene > ul.actions li.duplicate {float: right; padding: 0 0 10px 10px;}
 #content .scene h1 + p,
 #content .scene h1 + h3,
@@ -173,7 +177,7 @@ dt {color: #7d848c; display: inline-block; vertical-align: top; font-size: 12px;
 form {}
 fieldset {border: none; display: block;}
 div.field {padding: 0 28px 10px; position: relative; font-size: 0; z-index: 1;}
-div.field label {display: none;}
+div.field label {display: none; padding-left: 2px;}
 div.field input,
 div.field select,
 div.field textarea {box-shadow: inset 0 1px 2px #dedede; background: #ffffff; border: 1px solid #dcdcdc; display: inline-block; vertical-align: top; border-radius: 3px; margin: 2px; outline: none; position: relative; z-index: 1;}
@@ -182,7 +186,7 @@ div.field select {width: 381px; height: 30px; color: #333333; padding: 3px 3px 4
 div.field select option {padding: 3px 3px 4px 6px;}
 @media all and (-webkit-min-device-pixel-ratio:0) {
 	div.field select {width: 380px; height: 30px; padding: 2px 3px 2px 7px;
-		background: #ffffff url(/janitor/admin/img/bg_icons.png) no-repeat right -20px top -978px;
+		background: #ffffff url(../img/bg_icons.png) no-repeat right -20px top -978px;
 		-webkit-appearance: none;
 	}
 }
@@ -192,7 +196,7 @@ div.field textarea.autoexpand {width: 366px; padding: 6px 6px 2px; overflow: hid
 div.field .pseudolabel {position: absolute; font-size: 1.077rem; display: inline-block; padding: 8px 6px; z-index: 2;}
 div.field.paragraph label {display: inline-block; vertical-align: top; line-height: 1.38em;} 
 div.field.paragraph label:after {content: ":";}
-div.field.paragraph p {display: inline-block; vertical-align: top; padding: 0 0 0 5px;} 
+div.field.paragraph p {display: inline-block; vertical-align: top; padding: 0 0 0 2px;} 
 div.field.list label {} 
 div.field.checkbox,
 div.field.boolean {padding-bottom: 15px;}
@@ -222,7 +226,7 @@ div.field.files input[type="file"] {opacity: 0; width: 374px; border: none; heig
 }
 div.field.files label {display: block; position: absolute; width: 120px; left: 50%; padding: 1px 4px 3px; margin: 20px 0 0 -60px; text-align: center; border-radius: 6px; background: #dedede;}
 div.field.files.loading label {display: none;}
-div.field.files.loading {background: transparent url(/janitor/admin/img/gx_loader.gif) no-repeat center center;}
+div.field.files.loading {background: transparent url(../img/gx_loader.gif) no-repeat center center;}
 div.field.location {}
 div.field.location div.location {padding-bottom: 2px;}
 div.field.location div.latitude {padding-right: 2px;}
@@ -231,7 +235,7 @@ div.field.location div.longitude {display: inline-block; vertical-align: top;}
 div.field.location div.latitude input,
 div.field.location div.longitude input {width: 173px;}
 div.field.location.geolocation div.geolocation {width: 30px; height: 30px; display: inline-block; vertical-align: top; cursor: pointer;
-	background: transparent url(/janitor/admin/img/gx_geolocation.png) no-repeat 5px 8px;
+	background: transparent url(../img/gx_geolocation.png) no-repeat 5px 8px;
 }
 div.field.location.geolocation div.latitude input,
 div.field.location.geolocation div.longitude input {width: 158px;}
@@ -261,7 +265,7 @@ div.field textarea.default,
 div.field .pseudolabel {color: #aaaaaa;}
 div.field .indicator {position: absolute; top: 4px; left: 420px; width: 25px; height: 25px;}
 div.field.required .indicator {
-	background: transparent url(/janitor/admin/img/bg_icons.png) no-repeat 0 -292px;
+	background: transparent url(../img/bg_icons.png) no-repeat 0 -292px;
 }
 div.field.text.required .indicator {background-position: 0 -296px;}
 div.field.radiobuttons .indicator,
@@ -317,7 +321,7 @@ ul.actions a.button.primary:hover,
 .submitting input.button,
 .submitting a.button,
 #content .submitting a.button {padding-left: 40px !important;
-	background-image: url(/janitor/admin/img/gx_loader.gif);
+	background-image: url(../img/gx_loader.gif);
 	background-position: 9px 7px;
 	background-repeat: no-repeat;
 }
@@ -337,7 +341,7 @@ ul.actions a.button.secondary:hover,
 #content ul.actions form input.button.confirm,
 #content ul.actions form input.button.confirm:hover {color: #ffffff; background-color: #df0000;}
 #content ul.actions form input.button.loading,
-#content ul.actions form input.button.loading:hover {padding-left: 35px; background-color: #8c9399; background-image: url(/janitor/admin/img/gx_loader.gif); background-position: 10px center; background-repeat: no-repeat;}
+#content ul.actions form input.button.loading:hover {padding-left: 35px; background-color: #8c9399; background-image: url(../img/gx_loader.gif); background-position: 10px center; background-repeat: no-repeat;}
 ul.actions a.button.disabled,
 #content ul.actions a.button.disabled,
 ul.actions input.button.disabled,
@@ -385,11 +389,11 @@ div.field.hover div.hint+div.error {border-top-left-radius: 0; border-top-right-
 #content .field.html .editor div.tag {margin: 0 0 1px; padding: 0 0 0 30px; background-color: #dcdcdc; position: relative; border-radius: 3px; border: 2px solid #f5f7f8;}
 #content .field.html .editor div.dragged {z-index: 15;}
 #content .field.html .editor div.tag .drag {display: none; position: absolute; top: 0px; left: -20px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; background: #dedede; width: 30px; height: 30px; cursor: move;
-	background: #dedede url(/janitor/admin/img/bg_icons.png) no-repeat 6px -93px;
+	background: #dedede url(../img/bg_icons.png) no-repeat 6px -93px;
 }
 #content .field.html .editor div.tag:hover .drag {display: block;}
 #content .field.html .editor div.tag .remove {display: none; position: absolute; top: 0px; right: -15px; border-radius: 15px; background: #dedede; width: 30px; height: 30px; cursor: pointer;
-	background: #dedede url(/janitor/admin/img/bg_icons.png) no-repeat 8px -42px;
+	background: #dedede url(../img/bg_icons.png) no-repeat 8px -42px;
 }
 #content .field.html .editor div.tag:hover .remove {display: block;}
 #content .field.html .editor div.tag .classname {display: none; position: absolute; top: 0px; right: -45px; border-radius: 15px; background: #dedede; width: 30px; height: 30px; cursor: pointer;}
@@ -572,7 +576,7 @@ body #selection_options ul.actions a.button:hover {background-color: #313942;}
 #content .scene.shopView ul.items li h3 form > ul.actions {padding: 0; right: 45px;}
 #content .scene.shopView ul.items li h3 form > ul.actions li {padding: 8px 0 0;}
 #content .scene.shopView ul.items li h3 form > ul.actions input.button {width: 16px; height: 16px; padding: 0; text-indent: -9999px; border-radius: 15px;
-	background-image: url(/janitor/admin/img/gx_refresh.png);
+	background-image: url(../img/gx_refresh.png);
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -753,7 +757,7 @@ body.invoice #content div.scene .all_items ul.items li span.amount {float: right
 #content .defaultEdit.navigationEdit .sortable ul.items > li.item li.item li.item li.item li h3 {margin-left: 90px;}
 #content .defaultEdit.navigationEdit .sortable ul.items > li.item li.item li.item li.item li.item li.item h3 {margin-left: 110px;}
 #content .defaultEdit.navigationEdit .sortable ul.items > li li h3 {
-	background-image: url(/janitor/admin/img//bg_angle.png);
+	background-image: url(../img/bg_angle.png);
 	background-position: 23px 10px;
 	background-color: transparent;
 	background-repeat: no-repeat;
@@ -818,12 +822,12 @@ body.invoice #content div.scene .all_items ul.items li span.amount {float: right
 #content div.all_items.images ul.items > li {background-repeat: no-repeat; background-position: 0px center;}
 #content div.all_items.audios ul.items > li {}
 #content div.all_items.audios ul.items > li div.audioplayer {z-index: 10; position: absolute; top: 7px; left: 25px; width: 20px; height: 20px; 
-	background: transparent url(/janitor/admin/img/bg_bn_play_small.png) no-repeat 0px 0px;
+	background: transparent url(../img/bg_bn_play_small.png) no-repeat 0px 0px;
 }
 #content div.all_items.audios ul.items > li.playing div.audioplayer {background-position: 0px -100px;}
 #content div.all_items.videos ul.items > li {}
 #content div.all_items.videos ul.items > li div.videoplayer {z-index: 10; position: absolute; top: 10px; left: 20px; width: 50px; height: 50px; 
-	background: transparent url(/janitor/admin/img/bg_bn_play_medium.png) no-repeat 0px 0px;
+	background: transparent url(../img/bg_bn_play_medium.png) no-repeat 0px 0px;
 }
 #content div.all_items.videos ul.items > li.playing div.videoplayer {background-position: 0px -100px;}
 #content div.all_items ul.items > li .description {padding-bottom: 10px; margin-top: -5px; font-size: 12px; line-height: 1em;}
@@ -846,7 +850,7 @@ body.invoice #content div.scene .all_items ul.items li span.amount {float: right
 #content div.all_items div.filter form {position: absolute; right: 30px; top: 9px;}
 #content div.all_items div.filter .field {padding: 0 0 6px;}
 #content div.all_items div.filter .field input {width: 100px; height: 16px; font-size: 12px;}
-#content div.all_items.sortable ul.items > li.item div.drag {width: 30px; height: 30px; position: absolute; top: 0px; left: 15px; background: transparent url(/janitor/admin/img//bg_icons2.png) no-repeat 10px -440px; cursor: move;}
+#content div.all_items.sortable ul.items > li.item div.drag {width: 30px; height: 30px; position: absolute; top: 0px; left: 15px; background: transparent url(../img/bg_icons2.png) no-repeat 10px -440px; cursor: move;}
 #content div.all_items.sortable ul.items > li.item h3,
 #content div.all_items.sortable ul.items > li.item p,
 #content div.all_items.sortable ul.items > li.item ul.tags,
@@ -895,7 +899,7 @@ body.invoice #content div.scene .all_items ul.items li span.amount {float: right
 #content .scene.defaultEdit > div.media form.delete ul.actions {padding: 0;}
 #content .scene.defaultEdit > div.media form.delete ul.actions li {padding: 0;}
 #content .scene.defaultEdit > div.media form.delete input {font-size: 12px; color: #df0000; width: 30px; height: 30px; display: block; text-indent: -9999px; border: none; border-radius: 0; cursor: pointer; border-bottom-left-radius: 5px;
-	background: #ffffff url(/janitor/admin/img//bg_icons.png) no-repeat 8px -42px;
+	background: #ffffff url(../img/bg_icons.png) no-repeat 8px -42px;
 	-webkit-appearance: none;
 }
 #content .scene.defaultEdit > div.media form.delete input:hover {background-position: 8px -67px;}
@@ -926,13 +930,13 @@ body.invoice #content div.scene .all_items ul.items li span.amount {float: right
 #content .scene.defaultEdit > div.media.image div.file a {display: none;} 
 #content .scene.defaultEdit > div.media div.file {z-index: 11; margin: 0; height: 30px; width: 384px; background-color: rgba(0,0,0, 0.7); position: absolute; bottom: 16px; left: 28px;}
 #content .scene.defaultEdit > div.media div.file a {display: inline-block; vertical-align: top; width: 30px; height: 30px; text-indent: -9999px;
-	background: transparent url(/janitor/admin/img/bg_bn_play_medium.png) no-repeat 2px 3px; background-size: 80% auto;
+	background: transparent url(../img/bg_bn_play_medium.png) no-repeat 2px 3px; background-size: 80% auto;
 }
 #content .scene.defaultEdit > div.media div.file p {display: inline-block; vertical-align: top; width: auto; height: 20px; word-wrap: break-word; padding: 10px 5px 0; font-size: 10px; line-height: 1em; color: #ffffff;}
 #content .scene.defaultEdit > div.media div.file a.playing {background-position: 2px -45px;}
 #content .scene.defaultEdit > div.media ul.mediae li.video a,
 #content .scene.defaultEdit > div.media ul.mediae li.audio a {position: absolute; top: 35px; left: 50%; margin-left: -25px; text-indent: -9999px; display: block; width: 50px; height: 50px;
-	background: transparent url(/janitor/admin/img/bg_bn_play_medium.png) no-repeat center 0px; background-size: 100% auto;
+	background: transparent url(../img/bg_bn_play_medium.png) no-repeat center 0px; background-size: 100% auto;
 }
 #content .scene.defaultEdit > div.media ul.mediae li.video video {width: 100%; height: 100%;}
 #content .scene.defaultEdit > div.media ul.mediae li a.playing {background-position: center -100px;}
@@ -1018,6 +1022,8 @@ body.invoice #content div.scene .all_items ul.items li span.amount {float: right
 #content .scene.messageList > ul.actions li.maillists {float: right; padding: 0 0 10px 10px;}
 #content .scene.messageList > div.system {border-bottom: 1px solid #aaaaaa;}
 #content .scene.messageList > div.dynamic {padding-bottom: 30px; border-bottom: 1px solid #aaaaaa;}
+#content .scene.messageEdit ul.receipt {padding: 0 30px 20px; margin: 0 0 0 10px; list-style: disc;}
+#content .scene.messageEdit ul.receipt li {display: list-item; font-size: 15px; padding-bottom: 7px;}
 #content .scene.newSystemMessage fieldset.values {padding-top: 10px;}
 #content .scene.newSystemMessage fieldset.values h3 span.recipient {font-style: italic;}
 #content .scene.newSystemMessage ul.receipt {padding: 0 30px; margin: 0 0 0 10px; list-style: disc;}
