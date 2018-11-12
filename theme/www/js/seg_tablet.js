@@ -1,10 +1,10 @@
 /*
-asset-builder @ 2018-11-12 17:10:24
+asset-builder @ 2018-11-12 17:10:25
 */
 
-/*seg_desktop_include.js*/
+/*seg_tablet_include.js*/
 
-/*seg_desktop.js*/
+/*seg_tablet.js*/
 if(!u || !Util) {
 	var u, Util = u = new function() {};
 	u.version = "0.9.2";
@@ -6609,60 +6609,6 @@ Util.getVar = function(param, url) {
 		return "";
 	}
 }
-if(false && document.documentMode <= 10) {
-	Util.appendElement = u.ae = function(_parent, node_type, attributes) {
-		try {
-			var node = (obj(node_type)) ? node_type : document.createElement(node_type);
-			if(attributes) {
-				var attribute;
-				for(attribute in attributes) {
-					if(!attribute.match(/^(value|html)$/)) {
-						node.setAttribute(attribute, attributes[attribute]);
-					}
-				}
-			}
-			node = _parent.appendChild(node);
-			if(attributes) {
-				if(attributes["value"]) {
-					node.value = attributes["value"];
-				}
-				if(attributes["html"]) {
-					node.innerHTML = attributes["html"];
-				}
-			}
-			return node;
-		}
-		catch(exception) {
-			u.exception("u.ae (desktop_ie10)", arguments, exception);
-		}
-	}
-	Util.insertElement = u.ie = function(_parent, node_type, attributes) {
-		try {
-			var node = (obj(node_type)) ? node_type : document.createElement(node_type);
-			if(attributes) {
-				var attribute;
-				for(attribute in attributes) {
-					if(!attribute.match(/^(value|html)$/)) {
-						node.setAttribute(attribute, attributes[attribute]);
-					}
-				}
-			}
-			node = _parent.insertBefore(node, _parent.firstChild);
-			if(attributes) {
-				if(attributes["value"]) {
-					node.value = attributes["value"];
-				}
-				if(attributes["html"]) {
-					node.innerHTML = attributes["html"];
-				}
-			}
-			return node;
-		}
-		catch(exception) {
-			u.exception("u.ie (desktop_ie10)", arguments, exception);
-		}
-	}
-}
 u.smartphoneSwitch = new function() {
 	this.state = 0;
 	this.init = function(node) {
@@ -6729,123 +6675,6 @@ u.smartphoneSwitch = new function() {
 			});
 			if(this.callback_node && typeof(this.callback_node.smartphoneSwitchedOff) == "function") {
 				this.callback_node.smartphoneSwitchedOff();
-			}
-		}
-	}
-}
-Util.Objects["oneButtonForm"] = new function() {
-	this.init = function(node) {
-		if(!node.childNodes.length) {
-			var csrf_token = node.getAttribute("data-csrf-token");
-			var form_action = node.getAttribute("data-form-action");
-			var form_target = node.getAttribute("data-form-target");
-			var button_value = node.getAttribute("data-button-value");
-			var button_name = node.getAttribute("data-button-name");
-			var button_class = node.getAttribute("data-button-class");
-			var inputs = node.getAttribute("data-inputs");
-			if(csrf_token && form_action && button_value) {
-				var form_options = {"action":form_action, "class":"confirm_action_form"};
-				if(form_target) {
-					form_options["target"] = form_target;
-				}
-				node.form = u.f.addForm(node, form_options);
-				node.form.node = node;
-				u.ae(node.form, "input", {"type":"hidden","name":"csrf-token", "value":csrf_token});
-				if(inputs) {
-					for(input_name in inputs) {
-						u.ae(node.form, "input", {"type":"hidden","name":input_name, "value":inputs[input_name]});
-					}
-				}
-				u.f.addAction(node.form, {"value":button_value, "class":"button" + (button_class ? " "+button_class : ""), "name":u.stringOr(button_name, "save")});
-			}
-		}
-		else {
-			node.form = u.qs("form", node);
-		}
-		if(node.form) {
-			u.f.init(node.form);
-			node.form.node = node;
-			node.form.confirm_submit_button = u.qs("input[type=submit]", node.form);
-			node.form.confirm_submit_button.org_value = node.form.confirm_submit_button.value;
-			node.form.confirm_submit_button.confirm_value = node.getAttribute("data-confirm-value");
-			node.form.confirm_submit_button.wait_value = node.getAttribute("data-wait-value");
-			node.form.success_function = node.getAttribute("data-success-function");
-			node.form.success_location = node.getAttribute("data-success-location");
-			node.form.dom_submit = node.getAttribute("data-dom-submit");
-			node.form._download = node.getAttribute("data-download");
-			node.form.restore = function(event) {
-				u.t.resetTimer(this.t_confirm);
-				this.confirm_submit_button.value = this.confirm_submit_button.org_value;
-				u.rc(this.confirm_submit_button, "confirm");
-			}
-			node.form.submitted = function() {
-				u.bug("submitted");
-				if(!u.hc(this.confirm_submit_button, "confirm") && this.confirm_submit_button.confirm_value) {
-					u.ac(this.confirm_submit_button, "confirm");
-					this.confirm_submit_button.value = this.confirm_submit_button.confirm_value;
-					this.t_confirm = u.t.setTimer(this, this.restore, 3000);
-				}
-				else {
-					u.t.resetTimer(this.t_confirm);
-					if(fun(this.node.submitted)) {
-						u.bug("oneButtonForm");
-						this.node.submitted();
-					}
-					this.response = function(response) {
-						u.rc(this, "submitting");
-						u.rc(this.confirm_submit_button, "disabled");
-						page.notify(response);
-						this.restore();
-						if(response.cms_status == "success") {
-							if(response.cms_object && response.cms_object.constraint_error) {
-								this.confirm_submit_button.value = this.confirm_submit_button.org_value;
-								u.ac(this, "disabled");
-							}
-							else {
-								if(this.success_location) {
-									u.bug("location:" + this.success_location);
-									u.ass(this.confirm_submit_button, {
-										"display": "none"
-									});
-									location.href = this.success_location;
-								}
-								else if(this.success_function) {
-									u.bug("function:" + this.success_function);
-									if(fun(this.node[this.success_function])) {
-										this.node[this.success_function](response);
-									}
-								}
-								else if(fun(this.node.confirmed)) {
-									u.bug("confirmed");
-									this.node.confirmed(response);
-								}
-								else {
-									u.bug("default return handling" + this.success_location)
-								}
-							}
-						}
-						else {
-							if(fun(this.node.confirmedError)) {
-								u.bug("confirmedError");
-								this.node.confirmedError(response);
-							}
-						}
-					}
-					u.ac(this.confirm_submit_button, "disabled");
-					u.ac(this, "submitting");
-					this.confirm_submit_button.value = u.stringOr(this.confirm_submit_button.wait_value, "Wait");
-					if(this.dom_submit) {
-						u.bug("should submit:" + this._download);
-						if(this._download) {
-							this.response({"cms_status":"success"});
-							u.bug("wait for download");
-						}
-						this.DOMsubmit();
-					}
-					else {
-						u.request(this, this.action, {"method":"post", "data":u.f.getParams(this)});
-					}
-				}
 			}
 		}
 	}
