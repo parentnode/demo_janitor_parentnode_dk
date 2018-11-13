@@ -967,8 +967,17 @@ player.load("/media/audio/audio_1.mp3");</code>
 			<li class="save"><input value="Submit" type="submit" class="button primary key:s" /></li>
 		</ul>
 
-
-
 	</form>
+
+	<div class="usedby">
+		<h2>Selected clients</h2>
+		<ul>
+			<li class="distortion" title="Distortion">Distortion</li>
+			<li class="lsb" title="Lån & Spar Bank">Lån &amp; Spar Bank</li>
+			<li class="torvehallerne" title="Torvehallerne">Torvehallerne</li>
+			<li class="punkt1" title="Punkt1">Punkt1</li>
+			<li class="metro" title="Copenhagen Metro">Copenhagen Metro</li>
+		</ul>
+	</div>
 
 </div>
