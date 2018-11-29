@@ -8,6 +8,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 
 <div class="scene people i:generic">
 	<h1>People</h1>
+
 <?	if(!empty($items)): ?>
 	<ul class="items">
 <?		foreach($items as $item):
@@ -27,15 +28,19 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 <?			endforeach; ?>
 <?		endif; ?>
 			</ul>
-			<h2 itemprop="name"><?= $item["name"] ?></h2>
+			<h2 itemprop="name"><a href="/people/<?= $item["sindex"] ?>"><?= $item["name"] ?></a></h2>
+
+
+			<ul class="info">
+				<li itemprop="jobtitle"><?= stringOr($item["job_title"], "N/A") ?></li>
+				<li class="author" itemprop="email"><?= stringOr($item["email"], "N/A") ?></li>
+				<li class="author" itemprop="telephone"><?= stringOr($item["tel"], "N/A") ?></li>
+			</ul>
+
 			<p class="description" itemprop="description">
 				<?= $item["description"] ?>
 			</p>
-			<ul class="info">
-				<li itemprop="jobtitle"><?= stringOr($item["job_title"], "N/A") ?></li>	
-				<li itemprop="email"><?= stringOr($item["email"], "N/A") ?></li>
-				<li itemprop="telephone"><?= stringOr($item["tel"], "N/A") ?></li>
-			</ul>
+
 		</li>
 <?		endforeach; ?>
 	</ul>

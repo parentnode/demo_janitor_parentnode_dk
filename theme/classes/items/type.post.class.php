@@ -29,7 +29,7 @@ class TypePost extends Itemtype {
 			"type" => "string",
 			"label" => "Name",
 			"required" => true,
-			"hint_message" => "Name your post", 
+			"hint_message" => "Name your post",
 			"error_message" => "Name must be filled out."
 		));
 
@@ -43,7 +43,7 @@ class TypePost extends Itemtype {
 
 		// HTML
 		$this->addToModel("html", array(
-			"hint_message" => "Write your the post",
+			"hint_message" => "Write your post",
 			"allowed_tags" => "p,h2,h3,h4,ul,ol,download,jpg,png,code", //,mp4,vimeo,youtube,code",
 		));
 
