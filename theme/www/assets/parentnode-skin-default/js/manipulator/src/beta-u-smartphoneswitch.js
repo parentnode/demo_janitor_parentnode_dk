@@ -42,20 +42,20 @@ u.smartphoneSwitch = new function() {
 				opacity: 0
 			});
 
-			u.ae(this.panel, "h1", {html:u.stringOr(u.txt["smartphone-switch-headline"], "Hello curious")});
-			if(u.txt["smartphone-switch-text"].length) {
-				for(i = 0; i < u.txt["smartphone-switch-text"].length; i++) {
-					u.ae(this.panel, "p", {html:u.txt["smartphone-switch-text"][i]});
+			u.ae(this.panel, "h1", {html:u.stringOr(u.txt("smartphone-switch-headline"), "Hello curious")});
+			if(u.txt("smartphone-switch-text").length) {
+				for(i = 0; i < u.txt("smartphone-switch-text").length; i++) {
+					u.ae(this.panel, "p", {html:u.txt("smartphone-switch-text")[i]});
 				}
 			}
 
 			var ul_actions = u.ae(this.panel, "ul", {class:"actions"});
 			var li; 
 			li = u.ae(ul_actions, "li", {class:"hide"});
-			var bn_hide = u.ae(li, "a", {class:"hide button", html:u.txt["smartphone-switch-bn-hide"]});
+			var bn_hide = u.ae(li, "a", {class:"hide button", html:u.txt("smartphone-switch-bn-hide")});
 
 			li = u.ae(ul_actions, "li", {class:"switch"});
-			var bn_switch = u.ae(li, "a", {class:"switch button primary", html:u.txt["smartphone-switch-bn-switch"]});
+			var bn_switch = u.ae(li, "a", {class:"switch button primary", html:u.txt("smartphone-switch-bn-switch")});
 
 
 

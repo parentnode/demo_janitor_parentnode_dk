@@ -31,7 +31,7 @@ Util.Objects["docsindex"] = new function() {
 				var i, _function;
 				var functions = u.qsa(".functions .function", response);
 				for(i = 0; _function = functions[i]; i++) {
-				
+
 					_function.file_node = this;
 					_function = this.results.appendChild(_function);
 
@@ -52,7 +52,7 @@ Util.Objects["docsindex"] = new function() {
 //		u.bug("field._input:" + field._input);
 		// auto complete handler
 		field._input._autocomplete = function() {
-//			u.bug("autocomplete")
+//			u.bug("autocomplete");
 
 
 			var i, _function;
@@ -63,9 +63,9 @@ Util.Objects["docsindex"] = new function() {
 			// perform search
 			for(i = 0; _function = this.results.childNodes[i]; i++) {
 				if(
-					this.value.length > 2 && 
+					this.value.length > 2 &&
 					(
-						escape(u.text(_function._definition).toLowerCase()).match(escape(this.value.toLowerCase())) || 
+						escape(u.text(_function._definition).toLowerCase()).match(escape(this.value.toLowerCase())) ||
 						escape(u.text(_function._description).toLowerCase()).match(escape(this.value.toLowerCase()))
 					)
 				) {
@@ -82,22 +82,23 @@ Util.Objects["docsindex"] = new function() {
 		}
 
 		field._input._keyup = function(event) {
-//			u.bug("keyup")
+//			u.bug("keyup");
 			// reset existing timer
 			u.t.resetTimer(this.t_autocomplete);
 			this.t_autocomplete = u.t.setTimer(this, this._autocomplete, 300);
 		}
 
 		field._input.focused = function() {
-//			u.bug("focused")
-			u.e.addEvent(this, "keyup", this._keyup)
+//			u.bug("focused");
+			u.e.addEvent(this, "keyup", this._keyup);
 		}
 
 		field._input.blurred = function() {
 			u.t.resetTimer(this.t_autocomplete);
-			u.e.removeEvent(this, "keyup", this._keyup)
+			u.e.removeEvent(this, "keyup", this._keyup);
 		}
 
+		u.showScene(scene);
 	}
 }
 
@@ -176,15 +177,15 @@ Util.Objects["docpage"] = new function() {
 
 
 
-			// FUNCTION USES
+			// FUNCTION DEPENDENCIES
 
-			func._uses = u.qs(".uses", func);
-			u.as(func._uses, "height", "20px");
-			func._uses._func = func;
+			func._dependencies = u.qs(".dependencies", func);
+			u.as(func._dependencies, "height", "20px");
+			func._dependencies._func = func;
 
-			func._uses.expandarrow = u.svg({
+			func._dependencies.expandarrow = u.svg({
 				"name":"expandarrow",
-				"node":func._uses,
+				"node":func._dependencies,
 				"class":"arrow",
 				"width":17,
 				"height":17,
@@ -207,8 +208,8 @@ Util.Objects["docpage"] = new function() {
 			});
 
 
-			u.e.click(func._uses);
-			func._uses.clicked = function(event) {
+			u.e.click(func._dependencies);
+			func._dependencies.clicked = function(event) {
 
 				if(u.hc(this, "open")) {
 
@@ -345,6 +346,6 @@ Util.Objects["docpage"] = new function() {
 		}
 
 
-
+		u.showScene(scene);
 	}
 }
