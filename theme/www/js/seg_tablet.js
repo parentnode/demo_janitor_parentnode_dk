@@ -1,5 +1,5 @@
 /*
-asset-builder @ 2019-03-20 16:50:39
+asset-builder @ 2019-03-26 18:02:04
 */
 
 /*seg_tablet_include.js*/
@@ -4267,6 +4267,7 @@ Util.Objects["page"] = new function() {
 				if(typeof(u.smartphoneSwitch) == "object") {
 					u.smartphoneSwitch.init(this);
 				}
+				u.navigation();
 				this.initHeader();
 				this.initNavigation();
 				this.initFooter();
@@ -4274,7 +4275,6 @@ Util.Objects["page"] = new function() {
 			}
 		}
 		page.cN.navigate = function(url) {
-			u.bug(url)
 			location.href = url;
 		}
 		page.acceptCookies = function() {
