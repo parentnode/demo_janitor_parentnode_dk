@@ -1,5 +1,5 @@
 /*
-asset-builder @ 2019-04-23 21:17:40
+asset-builder @ 2019-04-23 21:59:32
 */
 
 /*seg_desktop_light_include.js*/
@@ -4779,7 +4779,7 @@ Util.Objects["page"] = new function() {
 				u.ac(this, "ready");
 				this.initNavigation();
 				this.resized();
-				page.acceptCookies();
+				this.acceptCookies();
 			}
 		}
 		page.acceptCookies = function() {
