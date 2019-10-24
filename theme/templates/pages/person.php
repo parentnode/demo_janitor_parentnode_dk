@@ -7,7 +7,7 @@ $sindex = array_pop($action);
 
 // current people item
 
-$item = $IC->getItem(array("sindex" => $sindex, "extend" => array("tags" => true, "mediae" => true)));
+$item = $IC->getItem(array("sindex" => $sindex, "status" => 1, "extend" => array("tags" => true, "mediae" => true)));
 $media = $IC->sliceMedia($item, "single_media");
 ?>
 

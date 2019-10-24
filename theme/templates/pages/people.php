@@ -12,7 +12,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 <?	if(!empty($items)): ?>
 	<ul class="items">
 <?		foreach($items as $item):
-			$media = $IC->sliceMedia($item); ?>
+			$media = $IC->sliceMedia($item, "single_media"); ?>
 		<li class="item person id:<?= $item["item_id"] ?> i:article" itemscope itemtype="http://schema.org/Person">
 
 <?		if($media): ?>
